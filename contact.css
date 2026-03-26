@@ -1,0 +1,216 @@
+:root {
+    --bg-color:#D1E8F2;
+    --accent: #035576;
+    --text-muted: #888;
+    --card-bg: #111;
+}
+
+.contact-modern {
+    background-color: var(--bg-color);
+    color:black;
+    padding: 120px 8%;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+.contact-header h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1;
+    font-weight: 800;
+    margin-bottom: 80px;
+    letter-spacing: -2px;
+}
+
+.contact-header span {
+    color: var(--accent);
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px; /* Creates a thin line between cards if container has bg */
+    background-color: #222; 
+    border: 1px solid #222;
+}
+
+.action-card {
+    background-color: var(--bg-color);
+    padding: 40px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.action-card:hover {
+    background-color: var(--accent);
+}
+
+.label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+
+}
+
+.action-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.action-card .arrow-icon {
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.action-card:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+    color: white;
+}
+
+.action-card:hover .label,
+.action-card:hover p {
+    color: rgba(255,255,255,0.7);
+}
+
+.location-footer {
+    margin-top: 60px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.location-footer span {
+    color: black;
+    font-weight: 600;
+}
+
+/* Responsive adjust */
+@media (max-width: 768px) {
+    .contact-modern { padding: 80px 5%; }
+    .action-card { padding: 30px; }
+}
+
+
+/* --- Contact Page Mobile View (Max width 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    .contact-modern {
+        padding: 80px 6%; /* Reduced padding for mobile screens */
+    }
+
+    /* 1. Scale down the massive heading */
+    .contact-header h2 {
+        font-size: 2.8rem; /* Scaled down from 5rem */
+        line-height: 1.1;
+        margin-bottom: 50px;
+        letter-spacing: -1px;
+    }
+
+    /* 2. Stack the cards vertically */
+    .action-grid {
+        display: flex;
+        flex-direction: column; /* Change from grid to vertical stack */
+        gap: 15px; /* Add space between the cards */
+        background-color: transparent; /* Remove the grid-line effect for mobile */
+        border: none;
+    }
+
+    .action-card {
+        padding: 30px 25px;
+        border: 1px solid #222; /* Add a slight border since they aren't touching */
+        border-radius: 12px; /* Smoother look for mobile */
+    }
+
+    /* 3. Adjust card content sizes */
+    .action-card h3 {
+        font-size: 1.2rem;
+        word-break: break-all; /* Prevents long emails from breaking the layout */
+    }
+
+    .action-card p {
+        font-size: 0.85rem;
+    }
+
+    /* Ensure the arrow is visible on mobile without hover */
+    .action-card .arrow-icon {
+        opacity: 1;
+        transform: translateX(0);
+        font-size: 1.5rem;
+    }
+
+    /* 4. Footer Adjustment */
+    .location-footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Extra Small Devices (Max width 480px) --- */
+@media screen and (max-width: 480px) {
+    .contact-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .action-card {
+        padding: 20px;
+    }
+}
+
+
+
+/* --- Cinematic Contact Animations --- */
+
+/* 1. Staggered Entrance for Cards */
+@keyframes cardEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* 2. Floating Background Elements */
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(15px, -15px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Apply Entrance to Header */
+.contact-header h2 {
+    opacity: 0;
+    animation: cardEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Apply Staggered Entrance to Cards */
+.action-card {
+    opacity: 0;
+    animation: cardEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.action-card:nth-child(1) { animation-delay: 0.2s; }
+.action-card:nth-child(2) { animation-delay: 0.4s; }
+.action-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* 3. Smooth Scale on Hover (In addition to your color change) */
+.action-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(3, 85, 118, 0.15);
+}

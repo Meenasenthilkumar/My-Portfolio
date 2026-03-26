@@ -1,0 +1,56 @@
+/* --- Entrance Animations --- */
+
+/* 1. Define the Keyframes */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 2. Apply to Elements */
+.home-content h3, 
+.home-content h1, 
+.home-content p, 
+.btn-group {
+    opacity: 0; /* Hidden initially */
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* 3. Add Delays for a "Staggered" look (sequential) */
+.home-content h3 { animation-delay: 0.2s; }
+.home-content h1 { animation-delay: 0.4s; }
+.home-content p { animation-delay: 0.6s; }
+.btn-group { animation-delay: 0.8s; }
+
+/* 4. Animate the Image Wrapper */
+.home-image-wrapper {
+    opacity: 0;
+    animation: scaleIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Subtle floating effect for the image (continuous) */
+.profile-img {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}

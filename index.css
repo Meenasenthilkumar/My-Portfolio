@@ -1,0 +1,1162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f9ff; /* Very light blue tint for the page */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 10%;
+    background-color: #035576; /* Pure white background */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.logo {
+    color: #D1E8F2;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.logo span {
+    color:  white; /* Sky blue dot */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 2.5rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover, .nav-links li a.active {
+    color:  skyblue; /* Deeper sky blue on hover */
+}
+
+/* Sky Blue Button Style */
+.nav-btn {
+    background-color: #87CEEB;
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+
+.nav-btn:hover {
+    background-color:  rgb(1, 11, 15);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+}
+
+/* Responsive Logic */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 100%;
+    background-color: #303e43;
+        width: 100%;
+        height: 0;
+        flex-direction: column;
+        overflow: hidden;
+        transition: 0.4s ease;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+    }
+.content-card {
+    width: 250px;
+}
+
+
+    .nav-links.active {
+        height: 300px;
+        padding: 2rem 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    .nav-links li a {
+        margin-left: 0;
+        font-size: 1.1rem;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
+
+
+/* ------------------------------------home----------------------------------- */
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background-color: #ffffff;
+    overflow: hidden; /* Important for the background shapes */
+    position: relative;
+}
+
+/* Text Content Area */
+.home-content {
+    max-width: 600px;
+    z-index: 10;
+}
+
+.home-content h3 {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    color: #333;
+    line-height: 1.1;
+    margin: 10px 0;
+}
+
+.home-content h1 span {
+    color: #035576; /* Sky blue accent */
+}
+
+.home-content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 28px;
+    background: #035576;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid  #035576;
+    color:  #035576;
+}
+
+.btn:hover {
+    background: #79d0f3;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* The Creative Image Side */
+.home-image-wrapper {
+    position: absolute;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The Sky Blue Diagonal Shape */
+.blue-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background:  #035576;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+
+.profile-img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 25px 25px 0px rgba(255, 255, 255, 0.3); /* White floating border effect */
+    border: 8px solid #ffffff;
+}
+
+/* Responsive Logic */
+@media (max-width: 991px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .home-content {
+        max-width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .home-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .blue-shape {
+        clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
+        height: 110%;
+    }
+
+    .profile-img {
+        width: 280px;
+        height: 350px;
+        margin-bottom: 50px;
+    }
+
+    .btn-group {
+        justify-content: center;
+    }
+}
+
+/* ----------------------------------------about ----------------------------------------- */
+
+.about {
+    padding: 150px 10% 100px 10%;
+    background-color: #D1E8F2;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Visual Side with Overlapping Card */
+.about-visual {
+    position: relative;
+    z-index: 5;
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+    filter: grayscale(20%);
+    transition: 0.5s;
+}
+
+.about-img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+.para{
+    padding-bottom: 20px;
+}
+.exp-card {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background: #035576; /* Sky Blue */
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 10;
+}
+
+.exp-card h2 { font-size: 2.5rem; }
+
+/* Content Side */
+.content-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(135, 206, 235, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tag {
+    color: #035576;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+}
+
+.about-content h2 {
+    font-size: 2.8rem;
+    margin: 15px 0;
+    color: #333;
+}
+
+.about-content h2 span { color: #035576; }
+
+/* Skill Grid - "Different" Approach */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f0f9ff;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.skill-item:hover {
+    background: #035576;
+    color: white;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #035576;
+    border-radius: 50%;
+}
+
+.skill-item:hover .dot { background: white; }
+
+/* Abstract Background Element */
+.abstract-circle {
+    position: absolute;
+    top: -10%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(135,206,235,0.1) 0%, rgba(255,255,255,0) 70%);
+    z-index: 1;
+}
+ .cv-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+       background-color: #035576;
+           text-decoration: none;
+           color: white;
+           border-radius: 10px;
+    }
+    .cv-button:hover{
+        background-color: #3a9dc4;
+    }
+
+    .cv-button i {
+        margin-left: 8px;
+    }
+
+
+/* Responsive */
+@media (max-width: 991px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .exp-card {
+        bottom: 10px;
+        right: 10px;
+        padding: 15px;
+    }
+
+    .skill-item {
+        justify-content: center;
+    }
+}
+
+
+/* -------------------------------------project------------------------------------- */
+
+.projects {
+    padding: 100px 10%;
+    background-color: #D1E8F2;
+    overflow-x: hidden;
+}
+
+.projects-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.projects-wrapper {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 50px;
+    /* This allows the projects to breathe and look different than a grid */
+}
+
+.project-card {
+    min-width: 620px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    transition: transform 0.5s ease;
+}
+
+.project-img-box {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.project-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* The Sky Blue Overlay Reveal */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #035576; /* Sky Blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s ease;
+    transform: translateY(100%); /* Slide up effect */
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover .project-img-box img {
+    transform: scale(1.1);
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.view-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.view-btn:hover {
+    background: white;
+    color: #035576;
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.project-info span {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #035576;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .projects-wrapper {
+        flex-direction: column;
+    }
+    .project-card {
+        min-width: 100%;
+    }
+}
+
+/* --------------------------------------------- Skills Section --------------------------------- */
+.skills {
+    padding: 80px 10%;
+    background-color: #D1E8F2;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.skills-header h2 span {
+    color: #035576;
+}
+
+/* Category Container */
+.category-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin: 50px 0;
+}
+
+.skill-category h3 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.4rem;
+    position: relative;
+    display: inline-block;
+}
+
+.skill-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: #035576;
+}
+
+.skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+/* Skill Pill Design */
+.skill-pill {
+    background: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(3, 85, 118, 0.2);
+    color: #555;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    opacity: 0; /* Starts hidden for the reveal effect */
+    transform: scale(0.5);
+}
+
+.skill-pill.reveal {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.skill-pill:hover {
+    background: #035576;
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(3, 85, 118, 0.3);
+}
+
+/* Infinite Scrolling Section */
+.scrolling-container {
+    overflow: hidden;
+    padding: 40px 0;
+    width: 100%;
+    background: #f9f9f9;
+    margin-top: 50px;
+}
+
+.skills-row {
+    display: flex;
+    width: max-content; /* Important for horizontal scroll */
+    gap: 20px;
+    animation: scroll-left 25s linear infinite;
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(20%); } /* Scrolls half-way to loop seamlessly */
+}
+
+.scrolling-container:hover .skills-row {
+    animation-play-state: paused;
+}
+
+.skill-item {
+    min-width: 160px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+
+.skill-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: #333;
+}
+.skills-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    overflow-y: scroll; /* Allows scrolling */
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    
+    
+}
+.skills-container:hover .skills-row {
+    animation-play-state: paused;
+   
+}
+
+.cls{
+    flex-direction: row;
+    height: 50px;
+}
+.intern{
+    height: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+/* ----------------------------------------contact----------------------------------------------- */
+
+
+.contact {
+    padding: 100px 10%;
+    background: radial-gradient(circle at top right, #f0f9ff 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    width: 100%;
+}
+
+/* Info Styling */
+.contact-info h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: #035576;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+/* Glass Form Styling */
+.glass-form {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.05);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    outline: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Input Animation: Label floats up when typing */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:valid ~ label {
+    top: -20px;
+    font-size: 0.85rem;
+    color: #035576;
+    font-weight: 700;
+}
+
+.input-group .bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #035576;
+    transition: 0.5s;
+}
+
+.input-group input:focus ~ .bar, .input-group textarea:focus ~ .bar {
+    width: 100%;
+}
+
+.send-btn {
+    width: 100%;
+    padding: 15px;
+    background: #035576;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.send-btn:hover {
+    background: #00a8e8;
+    transform: scale(1.02);
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    .contact-container { grid-template-columns: 1fr; gap: 50px; }
+}
+
+
+/* mobiel-view for about */
+
+/* --- Mobile Responsive View (Max width 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Navbar Mobile Adjustment */
+    
+    .menu-icon {
+        display: block; /* Show the hamburger menu */
+        cursor: pointer;
+    }
+
+    /* 2. About Section Mobile Layout */
+    .about-container {
+        flex-direction: column; /* Stack image and text */
+        padding: 60px 5%;
+        gap: 40px;
+    }
+
+    .about-visual {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .about-img {
+        width: 90%;
+        height: auto;
+    }
+
+    .exp-card {
+        bottom: -20px;
+        left: 5%;
+        padding: 15px;
+    }
+
+    /* 3. Text and Content Adjustment */
+    .about-content {
+        text-align: center;
+    }
+
+    .content-card h2 {
+        font-size: 1.8rem; /* Smaller heading for mobile */
+        line-height: 1.2;
+    }
+
+    .para {
+        font-size: 0.95rem;
+        margin: 15px auto;
+    }
+
+    /* 4. Skills Grid adjustment */
+    .skills-grid {
+        grid-template-columns: 1fr; /* Single column for skills */
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .skill-item {
+        justify-content: center;
+    }
+    
+}
+
+/* --- Small Mobile Devices (Max width 480px) --- */
+@media screen and (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .cv-button {
+        width: 100%; /* Full width button on very small phones */
+        text-align: center;
+    }
+}
+
+
+
+/* mobile view for skills  */
+
+
+/* --- Skills Page Mobile View (Max width 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    
+    .skill-category {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .skill-items {
+        justify-content: center; /* Center pills on mobile */
+        gap: 10px;
+    }
+
+    .skill-pill {
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
+    .skills {
+        padding: 60px 5%;
+    }
+
+    .skills-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .skills-header h2 {
+        font-size: 2rem;
+    }
+
+    /* 1. Category Containers */
+    .skills-container {
+        flex-direction: column; /* Stacks the categories */
+        gap: 30px;
+        padding: 0;
+    }
+
+
+
+
+    .skill-item {
+        width: 100px;
+        text-align: center;
+        padding: 15px 10px;
+    }
+
+    .skill-icon {
+        width: 45px; /* Slightly smaller icons for mobile */
+        height: 45px;
+        margin-bottom: 10px;
+    }
+
+    .skill-name {
+        font-size: 0.8rem;
+    }
+}
+.cls{
+        width: 250px;
+    }
+
+/* --- Very Small Devices (Max width 480px) --- */
+
+
+/* animation for about page  */
+
+/* --- Cinematic Reveal Animations --- */
+
+/* 1. The Main Reveal: Expands from a small line to full view */
+@keyframes cinematicReveal {
+    from {
+        clip-path: inset(50% 0 50% 0); /* Horizontal line in middle */
+        filter: blur(10px);
+        opacity: 0;
+    }
+    to {
+        clip-path: inset(0% 0 0% 0); /* Full view */
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+/* 2. Soft Fade and Scale for the Image */
+@keyframes imageSoftEntry {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+        filter: grayscale(100%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: grayscale(0%);
+    }
+}
+
+/* 3. Staggered Fade for the Skill Items */
+@keyframes letterPop {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Applying the Styles --- */
+
+.about-visual {
+    animation: imageSoftEntry 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.about-content {
+    animation: cinematicReveal 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+    animation-delay: 0.3s;
+    opacity: 0; /* Ensures it stays hidden until delay is over */
+}
+
+/* Staggering the Skill Items */
+.skill-item.cls {
+    opacity: 0;
+    animation: letterPop 0.5s ease forwards;
+}
+
+.skill-item.cls:nth-child(1) { animation-delay: 1s; }
+.skill-item.cls:nth-child(2) { animation-delay: 1.1s; }
+.skill-item.cls:nth-child(3) { animation-delay: 1.2s; }
+.skill-item.cls:nth-child(4) { animation-delay: 1.3s; }
+
+/* The Experience Card floating effect */
+.exp-card {
+    animation: floatingCard 3s ease-in-out infinite;
+}
+
+@keyframes floatingCard {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+
+/* project */
+
+
+
+/* --- Projects Page Entrance Animation --- */
+
+/* 1. Define the Keyframe */
+@keyframes projectEntry {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* 2. Initial State: Hide the cards */
+.project-card {
+    opacity: 0; 
+    animation: projectEntry 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* 3. Staggered Delays: Card by Card */
+.projects-wrapper:nth-child(2) .project-card:nth-child(1) { animation-delay: 0.2s; }
+.projects-wrapper:nth-child(2) .project-card:nth-child(2) { animation-delay: 0.4s; }
+.projects-wrapper:nth-child(3) .project-card:nth-child(1) { animation-delay: 0.6s; }
+.projects-wrapper:nth-child(3) .project-card:nth-child(2) { animation-delay: 0.8s; }
+
+/* 4. Animate the Header Text */
+.projects-header {
+    opacity: 0;
+    animation: projectEntry 1s ease-out forwards;
+    animation-delay: 0.1s;
+}
+
+/* 5. Continuous Hover Animation (Subtle Shine) */
+.project-img-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+.project-card:hover .project-img-box::after {
+    left: 125%;
+}
+
+
+/* slills */
+
+
+/* --- Skills Page Entrance Animations --- */
+
+/* 1. Pop effect for category pills */
+@keyframes pillPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    70% {
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 2. Slide up effect for the icon grid */
+@keyframes iconWave {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Initial state for Category Pills */
+.skill-pill {
+    opacity: 0;
+    animation: pillPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Stagger the pills inside each category */
+.skill-pill:nth-child(1) { animation-delay: 0.2s; }
+.skill-pill:nth-child(2) { animation-delay: 0.3s; }
+.skill-pill:nth-child(3) { animation-delay: 0.4s; }
+.skill-pill:nth-child(4) { animation-delay: 0.5s; }
+
+/* 4. Initial state for Icon Grid Items */
+.skill-item {
+    opacity: 0;
+    animation: iconWave 0.5s ease-out forwards;
+}
+
+/* Stagger the long list of icons (Wave effect) */
+/* This loop handles the first 15 icons automatically */
+.skill-item:nth-child(1) { animation-delay: 0.6s; }
+.skill-item:nth-child(2) { animation-delay: 0.65s; }
+.skill-item:nth-child(3) { animation-delay: 0.7s; }
+.skill-item:nth-child(4) { animation-delay: 0.75s; }
+.skill-item:nth-child(5) { animation-delay: 0.8s; }
+.skill-item:nth-child(6) { animation-delay: 0.85s; }
+.skill-item:nth-child(7) { animation-delay: 0.9s; }
+.skill-item:nth-child(n+8) { animation-delay: 1s; } /* The rest appear together */
+
+/* 5. Header Animation */
+.skills-header {
+    opacity: 0;
+    animation: iconWave 0.8s ease-out forwards;
+    animation-delay: 0.1s;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .content-card{
+        width: 550px;
+    }
+    .cls{
+        width: 550px;
+    }
+}
